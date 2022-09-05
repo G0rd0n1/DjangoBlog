@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{{ category_posts}}
+
+
+{% if category_posts %}
+<h2><strong>Category: </strong><u><small>{{categories}}</small></u></h2>
+
+<ul>
+{% for post in category_posts %}
+<li>
+    <a href ="{% url 'post-details' post.pk %}"> 
+        <h3>{{ post.title }}</h3></a>
+    <small><strong> {{ post.post_date }} </strong></small><br>
+    <small><h7>{{ post.author.first_name }}
+    {{ post.author.last_name }} |
+    {{ post.author.email }}: </h7></small>
+    <br><br>
+    {% if user.is_authenticated %}
+    {% comment %} <p>{{ post.body }}  {% endcomment %}
+    {{ post.body|slice:":250" | safe }} [ <small><a href="{% url 'updating_posts' post.pk %}">[ Edit ]</a> |
+    <a href="{% url 'deleting_posts' post.pk %}"> [ Delete ]</a></small> ]</p>
+{% endif %}
+</li>
+{% endfor %}
+</ul>
+{% else %}
+    <h2> This category does not posts</h2>
+    <h3> Redirecting to Homepage</h3>
+{% endif %}
+{% endblock %}

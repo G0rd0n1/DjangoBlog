@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}{{ post.author.first_name }} | Create New Category {% endblock%}
+
+{% block content %}
+
+<h1>Blog Category</h1>
+{% for item in category_menu_list %}
+     <a class= "dropdown-item" href="{% url 'category' item|slugify %}">
+    {{ item }}
+    </a> 
+    {% comment %} <p>Hey</h1> {% endcomment %}
+    
+{% endfor %}
+
+
+{% endblock %}
