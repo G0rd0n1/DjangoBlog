@@ -1,0 +1,103 @@
+ul{
+    background-color: transparent;
+  }  
+  li{
+    background-color: transparent;
+  }
+
+  body{
+    background: #6D6027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #D3CBB8, #6D6027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #D3CBB8, #6D6027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+
+  }
+  .btn {
+    background-color: DodgerBlue;
+    border: none;
+    color: white;
+    padding: 12px 16px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+
+  .navbar-nav {
+    padding: 12px 12px;
+    text-align: justify;
+    color: white;
+    background-color: transparent;
+  }
+
+
+  .nav-item {
+    padding: 0px 15px;
+    background-color: transparent;
+  }
+  .dropbtn {
+    background-color: transparent;
+    color: black;
+    padding: 8px;
+    font-size: 15px;
+    border: none;
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: RoyalBlue;}
+
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {display: block;}
+
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {background-color: RoyalBlue;}
+
+  .image-container{
+    width: 50px;
+    height: 50px;
+  }
+  .img{
+    height:2cm;
+    width:2cm;
+    display: inline-block;
+    vertical-align:  top;
+  }
+  .image-txt{
+    display: inline-block;
+    color:red;
+     
+  }
+  .h1{
+    font-size:smaller;
+    }
+  .justify-center{
+    height: 94px;
+
+  
+  }
+  hr.line{
+    border-top:1px solid #000000;
+  }
+  
