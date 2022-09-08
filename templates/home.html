@@ -1,35 +1,76 @@
-{% extends 'base.html' %}{% block content %}
-
+{% extends 'base.html' %}{% block content %} 
+{% if request.user.is_authenticated %}
 <h1><strong>Posts</strong></h1>
 
 {% for post in object_list %}
 <ul>
-    <li>
-        <a href ="{% url 'post-details' post.pk %}">
-            <h3>
-                {{ post.title }}
-            </h3>
-        </a>
-        <small><strong> {{ post.post_date }} </strong></small>
-        <br><small><h7>
-            {{ post.author.first_name }}
-            {{ post.author.last_name }} |
-            {{ post.author.email }}:
-        </h7></small>
+  <li class="li">
+    <a href="{% url 'post-details' post.pk %}">
+      <h3>{{ post.title }}</h3>
+    </a>
+    <small>
+        <strong> {{ post.post_date }} </strong>
+    </small>
+    <br />
+    <small>
+        <h6>
+        {{ post.author.first_name }} {{ post.author.last_name }} |
+         {{ post.author.email }}:
+      </h6>
+      </small>
 
-        <br><br>
-        <a href ="{% url 'category' post.category|slugify %}">{{ post.category }}</a>
-        <br>
-
-        {% if user.is_authenticated %}
-            {% if user.id == post.author.id %}
-            {% comment %} <p>{{ post.body }}  {% endcomment %}
-                {{ post.body|slice:":250" | safe }} [ <small><a href="{% url 'updating_posts' post.pk %}">[ Edit ]</a> |
-                <a href="{% url 'deleting_posts' post.pk %}"> [ Delete ]</a></small> ]</p>
-            {% endif %}
-        {% endif %}
-    </li>
+    <br /><br />
+    <a href="{% url 'category' post.category|slugify %}">{{ post.category }}</a>
+    <br />
+        {% if user.id == post.author.id %}
+        {% comment %}
+        <p>
+        {{ post.body }} 
+        {% endcomment %} {{ post.body|slice:":250" | safe }} [
+        <small
+            ><a href="{% url 'updating_posts' post.pk %}">[ Edit ]</a> |
+            <a href="{% url 'deleting_posts' post.pk %}"> [ Delete ]</a></small
+        >
+        ]
+        </p>
+    {% endif %}
+  </li>
 </ul>
+{% endfor %} 
+{% else %}
 
-{% endfor %}
+<!-- Display for the homepage before user logs in -->
+
+<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="10000">
+            <img src="templates/slideimages/Screenshot.png" class="d-block w-100">
+        <div class="carousel-caption d-none d-md-block">
+            <h4 style="color: black;">Our Game is absolutely Free</h4>
+            <h5>Since our main focus is on lower income families, we made it our mission to cut the costs any way possible,
+            that made us to find ways to bring the game to your smartphone absolutely free.</h5>
+        </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="2000">
+        <img src="https://images.unsplash.com/photo-1494548162494-384bba4ab999?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+            <h4>Educational</h4>
+            <h5>The way that our game is designed is not to only have fun while playing but you will also learn a lot about topics such as HIV, Diabetes, Heart Disease and more.</h5>
+        </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+    </div>
+{% endif %}
 {% endblock %}
