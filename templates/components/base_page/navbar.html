@@ -1,56 +1,52 @@
-<div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <a class="fa fa-home" href="{% url 'home' %}"></a>
-    <ul class="navbar-nav mr-auto">
-        
-        <!-- Category Menu -->
-        {% if category_menu %}
+<ul class="navbar-nav mr-auto">
+  {% if category_menu %}
 
-        <li class="nav-item dropdown">
-          <div class="dropdown">
-            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Categories
-            </a>
-            <div class="dropdown-content">
-              {% for item in category_menu %}
-              <a href="{% url 'category' item|slugify %}">{{item.name}}</a>
-              {% endfor %}
-            </div>
-          </li>
-          {% else %}
-          <li class="nav-item">
-            <strong><small><a class="nav-link" href="{% url 'category_list' %}">Categories My nxgga</a></small></strong>
-          </li>
+  <!-- Division created for the navigation bar -->
+  <li class="nav-item dropdown">
+    <div class="dropdown">
+      <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Categories
+      </a>
+      
+      <!-- Division created for the Category menu dropdowns -->
+      <div class="dropdown-content">
+        {% for item in category_menu %}
+        <a href="{% url 'category' item|slugify %}">{{item.name}}</a>
+        {% endfor %}
+      </div>
+      
+    </div>
+  </li>
+  {% else %}
+    <li class="nav-item">
+      <strong><small><a class="nav-link" href="{% url 'category_list' %}">Categories My nxgga</a></small></strong>
+    </li>
+  {% endif %}
 
-          {% endif %}
+  <!-- It will only display once user is logged in -->
+  {% if user.is_authenticated %}
+  <li class="nav-item">
+      <strong><small><a class="nav-link" href="{% url 'adding_posts' %}">Add Posts</a></small></strong>
+  </li>
 
-        {% if user.is_authenticated %}
-        <li class="nav-item">
-            <strong><small><a class="nav-link" href="{% url 'adding_posts' %}">Add Posts</a></small></strong>
-        </li>
-        
-        <li class="nav-item">
-            <strong><small><a class="nav-link" href="{% url 'adding_categories' %}">Add Category</a></small></strong>
-        </li>
+  <li class="nav-item">
+      <strong><small><a class="nav-link" href="{% url 'adding_categories' %}">Add Category</a></small></strong>
+  </li>
+  
+  <li class="nav-item">
+      <small><a class="nav-link" href="{% url 'logout' %}">Logout</a></small>
+  </li>
 
-        <li class="nav-item">
-            <small><a class="nav-link" href="">Contact</a></small>
-        </li>
-        <li class="nav-item">
-            <small><a class="nav-link" href="{% url 'logout' %}">Logout</a></small>
-        </li>
-
-        {% else %}
-        <li class="nav-item">
-            <small><a class="nav-link" href="{% url 'register' %}">SignUp</a></small>
-        </li>
-        <li class="nav-item">
-            <small><a class="nav-link" href="{% url 'login' %}">Login</a></small>
-        </li>
-
-        {% endif %}
-    </ul>
-    {% comment %} <form class="d-flex" role="search">
-      <small><input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"></small>
-      <small><button class="btn btn-outline-success" type="submit">Search</button></small>
-    </form> {% endcomment %}
-  </div>
+  <!-- Will display throughout all the pages -->
+  {% else %}
+  <li class="nav-item">
+      <small><a class="nav-link" href="{% url 'register' %}">SignUp</a></small>
+  </li>
+  <li class="nav-item">
+      <small><a class="nav-link" href="{% url 'login' %}">Login</a></small>
+  </li>
+  <li class="nav-item">
+    <small><a class="nav-link" href="">Contact</a></small>
+  </li>
+  {% endif %}
+</ul>

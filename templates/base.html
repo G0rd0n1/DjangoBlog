@@ -1,57 +1,59 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
 
-    <!-- label title-->
-    <title> {% block title %} Homepage {% endblock %} </title>
-    <!-- Bootstrap CSS -->
-    {% load static %}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <!-- Add icon library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-      @import url("{%static 'blog/style/styling.css'%}")
-    </style>
-  </head>
-  <body>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Navigation Bar-->
-  
+  <title> {% block title %} Homepage {% endblock %} </title>
+  {% load static %}
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{% static 'blog/style/styling.css' %}" />
+
+</head>
+
+<body>
+
+  <!-- Creating divisions for the page -->
   <div class="whole-container">
     <div class="header-container">
+
+      <!-- Division created for the image in the header -->
       <div class="flex justify-center">
         <div class="flex-aself-center flex-column">
-          <div class="image-container">
-          <img src="{% static 'blog/img/brain.jpg' %}" class= "img">
+          <div class="img">
+            <img src="{% static 'blog/img/kid.png' %}">
           </div>
-          <div class="image-txt">
-            <h1>fgbdhnjm</h1>
-          </div>
-            <nav class="navbar navbar-expand-lg navbar-light">
+        </div>  
+      </div>
 
-        
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button> 
-            {% include 'components/base_page/navbar.html' %}
-          </nav>
-        </div>
-        
-    <br/>
-    
-    
+      <!-- Division created for the navigation bar in the header -->
+      <div class="row-navbar">
+        <nav class="navbar navbar-expand-lg">
+          <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <a class="fa fa-home" href="{% url 'home' %}"></a>
+              {% include 'components/base_page/navbar.html' %}
+            </div>
+          </div>      
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <!-- Division container created to hold and display block-content -->
+  <div class="whole-container">
     <hr class="line">
-    </div>
-      <div class="container">
+    <div class="container">
       {% block content %}
-    {% endblock %}
+      {% endblock %}
     </div>
-</div>
-
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-  {% comment %} <script type="text/css" src="{% static 'blog/style/styling.css' %}"></script> {% endcomment %}
-  
-  </body>
+  {% block scripts %}
+  {% endblock %}  
+</body>
 </html>

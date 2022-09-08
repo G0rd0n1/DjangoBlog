@@ -1,20 +1,26 @@
-{% extends 'base.html' %}
-{% block content %}
-<h1><strong>Posts</strong></h1>
+{% extends 'base.html' %}{% block content %}
 
+<h1><strong>Posts</strong></h1>
 
 {% for post in object_list %}
 <ul>
     <li>
-        <a href ="{% url 'post-details' post.pk %}"> 
-            <h3>{{ post.title }}</h3></a>
-        <small><strong> {{ post.post_date }} </strong></small><br>
-        <small><h7>{{ post.author.first_name }}
-        {{ post.author.last_name }} |
-        {{ post.author.email }}: </h7></small>
+        <a href ="{% url 'post-details' post.pk %}">
+            <h3>
+                {{ post.title }}
+            </h3>
+        </a>
+        <small><strong> {{ post.post_date }} </strong></small>
+        <br><small><h7>
+            {{ post.author.first_name }}
+            {{ post.author.last_name }} |
+            {{ post.author.email }}:
+        </h7></small>
+
         <br><br>
         <a href ="{% url 'category' post.category|slugify %}">{{ post.category }}</a>
         <br>
+
         {% if user.is_authenticated %}
             {% if user.id == post.author.id %}
             {% comment %} <p>{{ post.body }}  {% endcomment %}

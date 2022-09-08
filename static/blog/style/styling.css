@@ -1,103 +1,153 @@
-ul{
-    background-color: transparent;
-  }  
-  li{
-    background-color: transparent;
-  }
-
-  body{
-    background: #6D6027;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #D3CBB8, #6D6027);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #D3CBB8, #6D6027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    
-
-  }
-  .btn {
-    background-color: DodgerBlue;
-    border: none;
-    color: white;
-    padding: 12px 16px;
-    font-size: 16px;
-    cursor: pointer;
-  }
 
 
-  .navbar-nav {
-    padding: 12px 12px;
-    text-align: justify;
-    color: white;
-    background-color: transparent;
-  }
+/* Styling for the navigation bar border */
+.navbar-nav {
+  padding: 12px 12px;
+  text-align: justify;
+  color: white;
+  background-color: transparent;
+  opacity: 0.75;
+}
 
 
-  .nav-item {
-    padding: 0px 15px;
-    background-color: transparent;
-  }
-  .dropbtn {
-    background-color: transparent;
-    color: black;
-    padding: 8px;
-    font-size: 15px;
-    border: none;
-  }
+/* Styling for the navigation bar container */
+.nav-item {
+  padding: 0px 15px;
+  background-color: transparent;
+}
 
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
 
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
+/* Background for the entire page */
+body {
+  background: #6d6027;
+  background: -webkit-linear-gradient(
+    to right,
+    #d3cbb8,
+    #6d6027
+  );
+  background: linear-gradient(
+    to right,
+    #d3cbb8,
+    #6d6027
+  );
+}
 
-  /* Links inside the dropdown */
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
 
-  /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {background-color: RoyalBlue;}
+/* Styling for the submitting buttons */
+.btn {
+  background-color: orangered;
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
 
-  /* Show the dropdown menu on hover */
-  .dropdown:hover .dropdown-content {display: block;}
 
-  /* Change the background color of the dropdown button when the dropdown content is shown */
-  .dropdown:hover .dropbtn {background-color: RoyalBlue;}
+/*___________________DROPDOWN SECTION____________________*/
 
-  .image-container{
-    width: 50px;
-    height: 50px;
-  }
-  .img{
-    height:2cm;
-    width:2cm;
-    display: inline-block;
-    vertical-align:  top;
-  }
-  .image-txt{
-    display: inline-block;
-    color:red;
-     
-  }
-  .h1{
-    font-size:smaller;
-    }
-  .justify-center{
-    height: 94px;
 
-  
-  }
-  hr.line{
-    border-top:1px solid #000000;
-  }
-  
+/* Styling for the Categories dropdown block */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+
+/* Styling for the dropdown menu in the Categories */
+.dropdown-content {
+  padding-top: 25px;
+  display: none;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0px 8px 16px 0px orangered;
+  z-index: 1;
+  width: 150px;
+  border-radius: 25px;
+}
+
+/* Styling for the text in the Categories dropdown menu */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: underline;
+  font-weight: bold;
+  display: block;
+}
+
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: orangered;
+}
+
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+/*_____________________________________________*/
+
+
+
+
+/* Styling for the image logo */
+.img {
+  height: 5cm;
+  width: 5cm;
+  display: inline-block;
+  vertical-align: top;
+}
+
+
+/* Styling for the top header bar with the image */
+.justify-center {
+  height: 94px;
+  background-color: orangered;
+  opacity: 0.75;
+}
+
+
+/* Styling for the navigation bar */
+.header-container{
+  background-color: brown;
+}
+
+
+/* Styling for the dotted line below the navigation bar */
+hr.line {
+  border-top: 3px dotted rgb(61, 60, 60);
+  opacity: 0.75;
+}
+
+
+/* Styling for the posts body section */
+.container {
+  max-width: 1290px;
+  padding-top: 100px;
+}
+
+h1 {
+  font-size: xx-large;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: brown;
+}
+
+/* Styling for the posts container */
+ul {
+  background-color: transparent;
+}
+
+li {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 3px dotted rgb(61, 60, 60);
+  opacity: 0.75;
+}
+
+
+h3 {
+  background-color: orangered;
+}
